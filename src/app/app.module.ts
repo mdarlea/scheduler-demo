@@ -5,7 +5,6 @@ import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { SchedulerModule} from 'sw-scheduler';
-import { ScrollToModule } from 'ng2-scroll-to-el';
 
 import { AppComponent } from './app.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
@@ -39,8 +38,7 @@ import { LoaderService } from './loader.service';
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemEventService, {delay: 1500, dataEncapsulation: false}),
-    SchedulerModule,
-    ScrollToModule.forRoot()
+    SchedulerModule
   ],
   providers: [
     HttpErrorHandlerService,

@@ -1,5 +1,3 @@
-import { ScrollToService } from 'ng2-scroll-to-el';
-
 import { Component, OnInit, OnChanges, Input, ViewChild, ElementRef } from '@angular/core';
 import { RecurringEventViewModel} from '../recurring-event-view-model';
 
@@ -11,7 +9,7 @@ import { RecurringEventViewModel} from '../recurring-event-view-model';
 export class RecurringEventComponent implements OnInit, OnChanges {
   @Input() viewModel = new RecurringEventViewModel();
 
-  constructor(private scrollToService: ScrollToService) { }
+  constructor() { }
 
   ngOnChanges(changes: any) {
     if (changes && 'viewModel' in changes) {
