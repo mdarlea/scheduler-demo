@@ -1,0 +1,27 @@
+<sw-scheduler [editMode]="editMode"
+           [ensureEventVisible]="ensureEventVisibleId"
+           resourceOrientation="none"
+           [getNewEvent]="getNewEvent"
+           [(view)]="view"
+           [date]="date"
+           (selectEvent)="onSelectEvent($event)"
+           (addEvent)="onAddEvent($event)"
+           (updateEvent)="onUpdateEvent($event)"
+           (closeEventModal)="onCloseEventModal()"
+           (viewChanged)="onViewChanged($event)"
+           (dateChanged)="onDateChanged($event)">
+  <sw-calendar *ngFor="let calendar of calendars" [name]="calendar.name" [events]="calendar.events">
+  </sw-calendar>
+  <ng-template schedulerEventTemplate let-data="data">
+     <div><i>{{data.subject}}</i></div>
+     <div>{{data.resourceId}}</div>
+     <div>({{data.appointmentId}})&nbsp;{{data.id}}</div>
+  </ng-template>
+  <ng-template schedulerReadSeletedEventTemplate let-selectedEvent="selectedEvent">
+
+  </ng-template>
+  <ng-template schedulerEditSeletedEventTemplate let-selectedEvent="selectedEvent">
+    <app-edit-event [event]="selectedEvent"></app-edit-event>
+  </ng-template>
+</sw-scheduler>
+<spinner *ngIf="processing"></spinner>

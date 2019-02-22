@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "",
       "schematics": {},
       "architect": {
         "build": {
@@ -23,9 +23,36 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/jqwidgets-framework/jqwidgets/styles/jqx.base.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/moment/min/moment.min.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxcore.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxbuttons.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxscrollbar.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxdata.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxdate.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxscheduler.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxscheduler.api.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxdatetimeinput.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxmenu.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxcalendar.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxtooltip.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxwindow.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxcheckbox.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxlistbox.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxdropdownlist.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxnumberinput.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxradiobutton.js",
+              "node_modules/jqwidgets-framework/jqwidgets/jqxinput.js",
+              "node_modules/jqwidgets-framework/jqwidgets/globalization/globalize.js",
+              "node_modules/jqwidgets-framework/jqwidgets/globalization/globalize.culture.de-DE.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

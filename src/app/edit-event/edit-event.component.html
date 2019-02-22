@@ -1,0 +1,88 @@
+<form class="form-group" (ngSubmit)="onSave()" ngNativeValidate #form="ngForm">
+  <div class="form-group">
+    <label for="subject" class="cols-sm-2 control-label">Subject</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </span>
+      <input id="subject"
+             name="subject"
+             type="text"
+             placeholder="Enter subject"
+             class="form-control"
+             required
+             [(ngModel)]="eventCopy.subject" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="instructor" class="cols-sm-2 control-label">Instructor</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-mortar-board" aria-hidden="true"></i>
+      </span>
+      <input id="instructor"
+             name="instructor"
+             type="text"
+             placeholder="Instructor name"
+             class="form-control"
+             required
+             [(ngModel)]="eventCopy.instructor" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="location" class="cols-sm-2 control-label">Location</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-building" aria-hidden="true"></i>
+      </span>
+      <input id="location"
+             name="location"
+             type="text"
+             placeholder="Enter location"
+             class="form-control"
+             required
+             [(ngModel)]="eventCopy.location" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+      <label>Start Time</label>
+      <time-picker name="startTime"
+                    [(ngModel)]="eventCopy.start"
+                    required
+                    format="{momentFormat:'lll'}">
+      </time-picker>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <label>End Time</label>
+      <time-picker name="endTime"
+                   [(ngModel)]="eventCopy.end"
+                   required
+                   format="{momentFormat:'lll'}">
+      </time-picker>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description"
+              name="description"
+              class="form-control"
+              [(ngModel)]="eventCopy.description">
+    </textarea>
+  </div>
+  <app-recurring-event [viewModel]="recurring"></app-recurring-event>
+  <div class="modal-footer">
+    <spinner *ngIf="processing"></spinner>
+    <ng-container *ngIf="!processing">
+      <button type="submit" class="btn btn-success" [disabled]="!form.form.valid">
+        <span class="glyphicon glyphicon-ok"></span>Save
+      </button>
+      <button type="button" (click)="delete()" class="btn btn-danger">
+        <span class="glyphicon glyphicon-remove"></span>Delete
+      </button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">
+        <span class="glyphicon glyphicon-log-out"></span>Close
+      </button>
+    </ng-container>
+  </div>
+<form>
