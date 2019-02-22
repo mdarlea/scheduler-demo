@@ -27,7 +27,6 @@
     "jqwidgets-framework": "^7.1.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
-    "ng2-scroll-to-el": "^1.2.1",
     "rxjs": "6.3.3",
     "sw-scheduler": "^0.2.8",
     "tslib": "^1.9.0",
