@@ -127,12 +127,12 @@ export class AppSchedulerComponent implements OnInit, OnDestroy {
       for (const calendar of this.calendars) {
         for (const ev of calendar.events) {
           if (ev.id === eventInfo.rootAppointment.id) {
-            if (ev.recurrenceException) {
-              ev.recurrenceException += ',';
-            } else {
-              ev.recurrenceException = '';
-            }
             if (eventInfo.rootAppointment.recurrenceException) {
+              if (ev.recurrenceException) {
+                ev.recurrenceException += ',';
+              } else {
+                ev.recurrenceException = '';
+              }
               ev.recurrenceException += eventInfo.rootAppointment.recurrenceException;
             }
 
