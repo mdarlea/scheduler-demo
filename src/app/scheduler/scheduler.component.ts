@@ -126,18 +126,21 @@ export class AppSchedulerComponent implements OnInit, OnDestroy {
       // updates the recurrence exception on the root appointment
       for (const calendar of this.calendars) {
         for (const ev of calendar.events) {
+          const updatedEvent = new Event();
+          Object.assign(updatedEvent, _.cloneDeep(ev));
+
           if (ev.id === eventInfo.rootAppointment.id) {
             if (eventInfo.rootAppointment.recurrenceException) {
               if (ev.recurrenceException) {
-                ev.recurrenceException += ',';
+                updatedEvent.recurrenceException += ',';
               } else {
-                ev.recurrenceException = '';
+                updatedEvent.recurrenceException = '';
               }
-              ev.recurrenceException += eventInfo.rootAppointment.recurrenceException;
+              updatedEvent.recurrenceException += eventInfo.rootAppointment.recurrenceException;
             }
 
             this.processing = true;
-            this.eventSvc.updateEvent(ev)
+            this.eventSvc.updateEvent(updatedEvent)
                          .pipe(switchMap(() => {
                            const newEvent = _.cloneDeep(ev) as Event;
                            newEvent.id = null;
@@ -148,6 +151,8 @@ export class AppSchedulerComponent implements OnInit, OnDestroy {
                            return this.eventSvc.createEvent(newEvent);
                          }))
                          .subscribe(event => {
+                           ev.recurrenceException = updatedEvent.recurrenceException;
+
                            calendar.events.push(event);
                            this.ensureEventVisibleId = event.id;
                            this.processing = false;
